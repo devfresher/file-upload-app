@@ -71,10 +71,10 @@ app.post(
 
 app.delete('/delete-file/:fileId', async (req, res) => {
 	try {
-		await fileWizardry.deleteFile(req.params.fileId);
+		await fileWizardry.deleteFile('cloudinary', req.params.fileId);
 
 		res.status(200).json({
-			message: 'File uploaded successfully',
+			message: 'File deleted successfully',
 			file: req.file,
 		});
 	} catch (error) {
